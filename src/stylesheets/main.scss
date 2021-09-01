@@ -1,0 +1,58 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .Select {
+    .value {
+      padding: 5px 10px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background: rgb(223, 223, 223);
+      }
+    }
+    .list {
+      transition: 100ms all ease-in-out;
+      transform-origin: top;
+      position: relative;
+
+      ul {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        bottom: 0;
+        li {
+          list-style: none;
+          padding: 2px 10px;
+          background: rgb(172, 172, 172);
+          border-bottom: 1px solid #000;
+          cursor: pointer;
+          &:hover {
+            background: rgb(223, 223, 223);
+          }
+          &:first-child {
+            border-radius: 5px 5px 0 0;
+          }
+          &:last-child {
+            border-bottom: none;
+            border-radius: 0 0 5px 5px;
+          }
+        }
+      }
+    }
+    &[data-open="false"] {
+      .list {
+        transform: scaleY(0);
+      }
+    }
+    &[data-open="true"] {
+      .list {
+        transform: scaleY(1);
+      }
+    }
+  }
+}
